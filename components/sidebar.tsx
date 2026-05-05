@@ -24,8 +24,8 @@ const navItems: NavItem[] = [
   { id: "about", icon: User, label: "About Robotics" },
   { id: "experience", icon: Briefcase, label: "Projects & Deployments" },
   { id: "skills", icon: PenTool, label: "Skills Tree" },
-  { id: "achievements", icon: Trophy, label: "Patents & Awards" },
-  { id: "contact", icon: Mail, label: "Contact" },
+  // { id: "achievements", icon: Trophy, label: "Patents & Awards" },
+  // { id: "contact", icon: Mail, label: "Contact" },
 ]
 
 const socialLinks = [
