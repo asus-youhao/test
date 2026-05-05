@@ -9,9 +9,7 @@ export function AboutSection() {
           <span className="text-primary">01.</span> About me
         </h3>
         <p className="text-muted-foreground leading-relaxed max-w-3xl">
-          Lorem consequat reprehenderit ipsum nulla qui pariatur tempor officia ad.
-          Excepteur excepteur pariatur ad laborum labore reprehenderit. Do eiusmod
-          sit pariatur nisi. Quis non dolor amet magna eu adipisicing est ex.
+          我是一位熱愛機器人與自動化的工程師，專注於 AMR（自主移動機器人）、人形雙臂協作機器人、AI 感知與運動控制整合。擁有豐富的現場落地經驗，熟悉 ROS/ROS2、嵌入式系統、感測融合、機電整合與智慧製造。我的理念是打造真正能解決現場問題、兼具彈性與可擴展性的機器人系統，讓人機協作更智慧、更安全、更高效。
         </p>
       </div>
 
@@ -21,10 +19,7 @@ export function AboutSection() {
           <span className="text-primary">02.</span> Interests and Hobbies
         </h3>
         <p className="text-muted-foreground leading-relaxed max-w-3xl">
-          When I&apos;m not coding, you&apos;ll find me exploring the latest tech trends,
-          contributing to open-source projects, and mentoring aspiring developers.
-          I&apos;m passionate about creating scalable solutions and building products
-          that make a difference.
+          喜歡參與機器人競賽、開源 ROS 專案、機電整合、AI 感知、SLAM、運動規劃與人機協作新技術。閒暇時會動手 DIY 嵌入式裝置或參與自駕車/機器人社群。
         </p>
       </div>
 
@@ -37,15 +32,15 @@ export function AboutSection() {
           <div className="flex items-start gap-4">
             <div className="w-2 h-2 rounded-full bg-primary mt-2" />
             <div>
-              <h4 className="font-semibold">Master&apos;s in Computer Science</h4>
-              <p className="text-muted-foreground">Stanford University, 2018</p>
+              <h4 className="font-semibold">碩士｜電機工程所</h4>
+              <p className="text-muted-foreground">國立勤益科技大學, 2022</p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <div className="w-2 h-2 rounded-full bg-primary mt-2" />
             <div>
-              <h4 className="font-semibold">Bachelor&apos;s in Software Engineering</h4>
-              <p className="text-muted-foreground">MIT, 2016</p>
+              <h4 className="font-semibold">學士｜電機工程</h4>
+              <p className="text-muted-foreground">國立勤益科技大學, 2018</p>
             </div>
           </div>
         </div>

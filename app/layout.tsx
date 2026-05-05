@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Youhao | Web Developer & Growth Consultant',
-  description: 'Full Stack Developer and Growth Consultant with 6+ years of experience building digital products.',
+  title: 'AMR / Humanoid Robotics Engineer',
+  description: '專注於 AMR、雙臂機器人、AI 感知與運動控制整合，具備 ROS/ROS2、嵌入式、機電整合與現場自動化落地經驗。',
   generator: 'v0.app',
   icons: {
     icon: [

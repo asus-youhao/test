@@ -8,13 +8,13 @@ export function ProfileSidebar() {
         <div className="absolute top-8 left-8 z-10">
           <div className="bg-primary px-6 py-2">
             <h1 className="text-2xl font-bold text-primary-foreground tracking-wide">
-              Youhao
+              Robotics Engineer
             </h1>
           </div>
         </div>
         <img
-          src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=600&fit=crop&crop=face"
-          alt="Youhao Portrait"
+          src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=600&fit=crop&crop=face"
+          alt="Robotics Engineer Portrait"
           className="w-full h-full object-cover grayscale"
         />
       </div>
@@ -22,11 +22,11 @@ export function ProfileSidebar() {
       {/* Bottom Text */}
       <div className="p-8 bg-black">
         <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-          Ready to
+          Let’s build
           <br />
-          discuss your
+          the next-gen
           <br />
-          project?
+          robotics together
         </h2>
       </div>
     </aside>

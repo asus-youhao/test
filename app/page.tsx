@@ -10,6 +10,26 @@ import { AboutSection } from "@/components/about-section"
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home1")
 
+  // 經歷資料移到這裡
+  const experiences = [
+    {
+      role: "Software/Firmware Motion Control Developer",
+      company: "ASUSTeK Computer Inc.",
+      period: "2022 - Present",
+      description: [
+        "AMR Full Stack Development: ROS/ROS2, Embedded Systems (NVIDIA Jetson Orin AGX Thor)",
+        "PMSM/BLDC/QDD Motor FOC Control",
+        "Dual-arm OpenArm Motion Control",         
+      ],
+    },
+    {
+      role: "電機工程系所 燃料電池與先進電能儲存實驗室",
+      company: "National Chin-Yi University of Technology, Taiwan",
+      period: "2018 - 2022",
+      description: [],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Main Layout */}
@@ -55,47 +75,7 @@ export default function Home() {
           )}
 
           {/* About Section */}
-          {activeSection === "about" && (
-            <section className="min-h-screen p-8 lg:p-16">
-              <div className="max-w-4xl">
-                <h1 className="text-5xl font-bold mb-8">
-                  <span className="text-primary">About</span> Me
-                </h1>
-                <div className="grid gap-12">
-                  <div className="space-y-6">
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      I&apos;m a passionate web developer and growth consultant with over
-                      6 years of experience building digital products that make a
-                      difference. My expertise spans across full-stack development,
-                      UI/UX design, and business strategy.
-                    </p>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      I believe in creating solutions that are not just technically
-                      sound but also user-centric and scalable. My approach combines
-                      clean code principles with modern design thinking.
-                    </p>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-semibold text-primary">Education</h3>
-                      <ul className="space-y-3 text-muted-foreground">
-                        <li>• Master&apos;s in Computer Science - Stanford</li>
-                        <li>• Bachelor&apos;s in Software Engineering - MIT</li>
-                      </ul>
-                    </div>
-                    <div className="space-y-4">
-                      <h3 className="text-xl font-semibold text-primary">Languages</h3>
-                      <ul className="space-y-3 text-muted-foreground">
-                        <li>• English (Native)</li>
-                        <li>• Spanish (Fluent)</li>
-                        <li>• German (Conversational)</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
+            {activeSection === "about" && <AboutSection />}
 
           {/* Experience Section */}
           {activeSection === "experience" && (
@@ -105,32 +85,21 @@ export default function Home() {
                   <span className="text-primary">Work</span> Experience
                 </h1>
                 <div className="space-y-12">
-                  {[
-                    {
-                      role: "Senior Full Stack Developer",
-                      company: "TechCorp Inc.",
-                      period: "2021 - Present",
-                      description: "Leading development of enterprise-scale applications using React, Node.js, and cloud technologies.",
-                    },
-                    {
-                      role: "Growth Consultant",
-                      company: "StartupHub",
-                      period: "2019 - 2021",
-                      description: "Helped 20+ startups scale their products and optimize their growth strategies.",
-                    },
-                    {
-                      role: "Frontend Developer",
-                      company: "DesignStudio",
-                      period: "2017 - 2019",
-                      description: "Built responsive web applications and collaborated with design teams on UI/UX improvements.",
-                    },
-                  ].map((job, index) => (
+                  {experiences.map((job, index) => (
                     <div key={index} className="relative pl-8 border-l-2 border-primary">
                       <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary" />
                       <h3 className="text-xl font-semibold">{job.role}</h3>
                       <p className="text-primary">{job.company}</p>
                       <p className="text-muted-foreground text-sm mb-2">{job.period}</p>
-                      <p className="text-muted-foreground">{job.description}</p>
+                      {Array.isArray(job.description) && job.description.length > 0 ? (
+                        <ul className="text-muted-foreground list-disc pl-5 space-y-1">
+                          {job.description.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-muted-foreground">{job.description}</p>
+                      )}
                     </div>
                   ))}
                 </div>
