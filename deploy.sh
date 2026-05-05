@@ -18,11 +18,22 @@ set -euo pipefail
 
 # ── Configurable ─────────────────────────────────────────────────────────────
 REPO_NAME="${REPO_NAME:-}"          # leave empty for user page
-BUILD_CMD="pnpm build"              # change to: npm run build / yarn build
+BUILD_CMD="npm run build"           # change to: pnpm build / yarn build
 OUT_DIR="out"                       # Next.js static export output directory
 DEPLOY_BRANCH="gh-pages"            # branch GitHub Pages serves from
 COMMIT_MSG="chore: deploy $(date '+%Y-%m-%d %H:%M:%S')"
 # ─────────────────────────────────────────────────────────────────────────────
+
+# Ensure Node 18+ is used (prefer snap node on Ubuntu if default is too old)
+if node --version 2>/dev/null | grep -qE '^v(0|[1-9]|1[0-7])\.'; then
+  if [ -x /snap/bin/node ]; then
+    export PATH=/snap/bin:/snap/node/current/bin:$PATH
+    echo "ℹ  Using snap Node: $(node --version)"
+  else
+    echo "❌  Node.js 18+ required. Current: $(node --version). Install via: sudo snap install node --classic --channel=20"
+    exit 1
+  fi
+fi
 
 echo "=========================================="
 echo " GitHub Pages Deploy Script"
