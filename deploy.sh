@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # =============================================================================
 # deploy.sh  —  Build Next.js static site and push to GitHub Pages
 # =============================================================================
@@ -11,7 +10,7 @@
 #     ./deploy.sh
 #
 # REQUIREMENTS
-#   git, pnpm (or npm/yarn — change INSTALL_CMD / BUILD_CMD below)
+#   git, npm (Node.js 18+)
 # =============================================================================
 
 set -euo pipefail
@@ -61,37 +60,11 @@ echo ""
 echo "▶  Writing .nojekyll..."
 touch "${OUT_DIR}/.nojekyll"
 
-# 4. Push the out/ directory to the gh-pages branch
+# 4. Push the out/ directory to the gh-pages branch via npx gh-pages
+#    (gh-pages package handles the orphan branch safely, no manual checkout)
 echo ""
 echo "▶  Deploying to '${DEPLOY_BRANCH}' branch..."
-
-# Save the current branch so we can return
-CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-# Stash any outstanding changes so they don't get lost
-git stash --include-untracked --quiet || true
-
-# Ensure the deploy branch exists (local)
-if git show-ref --quiet "refs/heads/${DEPLOY_BRANCH}"; then
-  # Branch exists: checkout and wipe it
-  git checkout "${DEPLOY_BRANCH}"
-  git rm -rf . --quiet
-else
-  # Create a fresh orphan branch
-  git checkout --orphan "${DEPLOY_BRANCH}"
-  git rm -rf . --quiet
-fi
-
-# Copy build output into root of the branch
-cp -r "${OUT_DIR}/." .
-
-# Create a .gitignore for the gh-pages branch to exclude source files
-printf 'node_modules/\n.next/\n' > .gitignore
-
-# Commit and push
-git add -A
-git commit -m "${COMMIT_MSG}"
-git push origin "${DEPLOY_BRANCH}" --force
+npx --yes gh-pages -d "${OUT_DIR}" -b "${DEPLOY_BRANCH}" --dotfiles -m "${COMMIT_MSG}"
 
 echo ""
 echo "✅  Deploy complete!"
@@ -102,11 +75,4 @@ else
   echo "   Your site will be live at:"
   echo "   https://<your-github-username>.github.io/"
 fi
-echo ""
-
-# 5. Return to original branch and restore stash
-git checkout "${CURRENT_BRANCH}"
-git stash pop --quiet 2>/dev/null || true
-
-echo "   Returned to branch: ${CURRENT_BRANCH}"
 echo "=========================================="
