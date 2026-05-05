@@ -85,6 +85,9 @@ fi
 # Copy build output into root of the branch
 cp -r "${OUT_DIR}/." .
 
+# Create a .gitignore for the gh-pages branch to exclude source files
+printf 'node_modules/\n.next/\n' > .gitignore
+
 # Commit and push
 git add -A
 git commit -m "${COMMIT_MSG}"
