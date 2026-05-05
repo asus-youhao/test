@@ -57,8 +57,8 @@ export function HeroSection() {
             <div>
               <h1 className="text-5xl lg:text-6xl font-mono mb-4">
                 <span className="text-primary">{">"}</span>{" "}
-                <span className="text-foreground">Carl</span>{" "}
-                <span className="text-foreground">Hanson</span>
+                <span className="text-foreground">Youhao</span>{" "}
+                <span className="text-foreground">Zhang</span>
                 <span className="text-primary animate-pulse">_</span>
               </h1>
               <h2 className="text-4xl lg:text-5xl font-bold">
@@ -118,7 +118,7 @@ export function HeroSection() {
             <div className="relative overflow-hidden rounded-lg">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face"
-                alt="Carl Hanson"
+                alt="Youhao"
                 className="w-full h-[600px] object-cover grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />

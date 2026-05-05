@@ -8,13 +8,13 @@ export function ProfileSidebar() {
         <div className="absolute top-8 left-8 z-10">
           <div className="bg-primary px-6 py-2">
             <h1 className="text-2xl font-bold text-primary-foreground tracking-wide">
-              CARL HANSON
+              Youhao
             </h1>
           </div>
         </div>
         <img
           src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=600&fit=crop&crop=face"
-          alt="Carl Hanson Portrait"
+          alt="Youhao Portrait"
           className="w-full h-full object-cover grayscale"
         />
       </div>

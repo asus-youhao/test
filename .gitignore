@@ -14,4 +14,5 @@ next.user-config.*
 node_modules
 .next/
 out/
+_local_serve/
 .DS_Store
